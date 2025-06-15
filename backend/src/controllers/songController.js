@@ -49,8 +49,7 @@ const listSong = async (req, res) => {
 
 const removeSong = async (req, res) => {
     try {
-        const songId = req.params.id
-        await songModel.findByIdAndDelete(songId)
+        await songModel.findByIdAndDelete(req.body.id)
         res.json({success: true, message: "song deleted successfully"})
     } catch (error) {
         res.json({success: false, message: error.message})
